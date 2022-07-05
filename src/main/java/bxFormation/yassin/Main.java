@@ -1,5 +1,6 @@
 package bxFormation.yassin;
 
+import bxFormation.yassin.daos.StudentDao;
 import bxFormation.yassin.entities.Section;
 import bxFormation.yassin.daos.SectionDao;
 import jakarta.persistence.EntityManager;
@@ -11,6 +12,7 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("coursJPA");
         EntityManager manager = emf.createEntityManager();
         SectionDao sectionDao = new SectionDao(manager);
+        StudentDao studentDao = new StudentDao(manager);
         Section section = new Section(1111,"name",456);
 //        System.out.println(sectionDao.getSectionWithId(1020));
 //        System.out.println(sectionDao.getAllSections());
