@@ -1,4 +1,4 @@
-package bxFormation.yassin.entities;
+package bxFormation.dbslide.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

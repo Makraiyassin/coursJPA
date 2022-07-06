@@ -1,4 +1,4 @@
-package bxFormation.yassin.entities;
+package bxFormation.dbslide.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity

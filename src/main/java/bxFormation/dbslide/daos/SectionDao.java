@@ -1,8 +1,7 @@
-package bxFormation.yassin.daos;
+package bxFormation.dbslide.daos;
 
-import bxFormation.yassin.entities.Section;
+import bxFormation.dbslide.entities.Section;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 

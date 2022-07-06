@@ -1,15 +1,10 @@
-package bxFormation.yassin;
+package bxFormation.dbslide;
 
-import bxFormation.yassin.daos.StudentDao;
-import bxFormation.yassin.entities.Section;
-import bxFormation.yassin.daos.SectionDao;
-import bxFormation.yassin.entities.Student;
+import bxFormation.dbslide.daos.StudentDao;
+import bxFormation.dbslide.daos.SectionDao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-
-import java.time.LocalDate;
-import java.util.Date;
 
 
 public class Main {
@@ -31,14 +26,13 @@ public class Main {
         //region CRUD StudentDao (en commentaire)
 //        Student student = new Student(28,"firstname","lastname",new Date(92, 06, 21),"fila",1111,100,"EF2022");
 //        System.out.println(studentDao.getStudentById(1));
-//
 //        studentDao.getAllStudents().forEach(System.out::println);
 //        studentDao.insert(student);
 //        studentDao.update(student);
 //        studentDao.delette(student);
         //endregion
 
-        studentDao.transfertFromSectionToSection(sectionDao.getSectionById(1020), sectionDao.getSectionById(1111));
+        studentDao.transfertFromSectionToSection(sectionDao.getSectionById(1111), sectionDao.getSectionById(1020));
         emf.close();
     }
 }
