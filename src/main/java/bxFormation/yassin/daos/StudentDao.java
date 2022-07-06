@@ -39,21 +39,17 @@ public class StudentDao {
         manager.remove(studentToDelette);
         manager.getTransaction().commit();
     }
-
     public void transfertFromSectionToSection(Section s1, Section s2){
         List<Student> students = manager.createQuery(
                 """
                     SELECT s FROM Student s
-                    WHERE s.id = 
-                """+s1.getId(),
+                    WHERE s.sectionId = 
+                """ + s1.getId(),
                 Student.class
-        )
-                .getResultList();
+        ).getResultList();
+
         students.forEach(student->{
-            manager.getTransaction().begin();
-            Student studentToUpdate = getStudentById(student.getId());
-            studentToUpdate.setSectionId(s2.getId());
-            manager.getTransaction().commit();
+            update(new Student(student.getId(),student.getFirstName(),student.getLastName(),student.getBirthDate(),student.getLogin(),s2.getId(),student.getYearResult(),student.getCourseId()));
         });
     }
 
