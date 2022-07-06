@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="coursJpaHibernate" />
+        <module name="coursJPA" />
       </profile>
     </annotationProcessing>
   </component>
