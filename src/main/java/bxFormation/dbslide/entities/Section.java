@@ -30,4 +30,7 @@ public class Section {
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
     private List<Course> courses;
+
+    @OneToOne
+    private Student delegue;
 }

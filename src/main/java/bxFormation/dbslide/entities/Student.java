@@ -45,4 +45,18 @@ public class Student {
                 ", courseId='" + courseId + '\'' +
                 '}';
     }
+
+    @OneToOne
+    private Section delegueDe;
+
+    public Student(int id, String firstName, String lastName, Date birthDate, String login, Section section, int yearResult, String courseId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.login = login;
+        this.section = section;
+        this.yearResult = yearResult;
+        this.courseId = courseId;
+    }
 }
