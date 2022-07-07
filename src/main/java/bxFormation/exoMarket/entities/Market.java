@@ -26,6 +26,7 @@ public class Market {
     @OneToMany(mappedBy = "market")
     private List<Aisle> aisleList;
     @OneToOne
+    @JoinColumn(name = "director_id")
     private Director director;
 
 }
