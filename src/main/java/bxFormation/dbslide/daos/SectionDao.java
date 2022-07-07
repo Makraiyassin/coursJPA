@@ -1,7 +1,7 @@
 package bxFormation.dbslide.daos;
 
 import bxFormation.dbslide.entities.Section;
-import jakarta.persistence.EntityManager;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -21,23 +21,46 @@ public class SectionDao {
     }
 
     public void insert(Section section) {
-        manager.getTransaction().begin();
-        manager.persist(section);
-        manager.getTransaction().commit();
+        try {
+            manager.getTransaction().begin();
+            manager.persist(section);
+            manager.getTransaction().commit();
+        }
+        catch (RollbackException ex){
+            throw new EntityExistsException("this section already exist in db");
+        }
     }
+
     public void update(Section section) {
+        if( section == null )
+            throw new IllegalArgumentException("section cannot be null");
+
+        if( !existsById(section.getId()) )
+            throw new EntityNotFoundException("Entity not found");
+
         manager.getTransaction().begin();
-//        Section sectionToUpdate = getSectionWithId(section.getId());
-//        sectionToUpdate.setName(section.getName());
-//        sectionToUpdate.setDelegateId(section.getDelegateId());
         manager.merge(section);
         manager.getTransaction().commit();
     }
 
-    public void delette(Section section) {
-        Section sectionToDelette = getSectionById(section.getId());
+    public Section delette(Section section) {
         manager.getTransaction().begin();
+        Section sectionToDelette = getSectionById(section.getId());
         manager.remove(sectionToDelette);
         manager.getTransaction().commit();
+        return sectionToDelette;
+    }
+
+    public Section delette(int id) {
+        manager.getTransaction().begin();
+        Section sectionToDelette = getSectionById(id);
+        manager.remove(sectionToDelette);
+        manager.getTransaction().commit();
+        return sectionToDelette;
+    }
+
+    public boolean existsById(int id){
+        TypedQuery<Integer> query = manager.createQuery("SELECT COUNT(s) FROM Section s WHERE s.id = " + id, Integer.class);
+        return query.getSingleResult() > 0;
     }
 }
