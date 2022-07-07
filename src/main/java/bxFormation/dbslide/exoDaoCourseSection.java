@@ -12,7 +12,7 @@ public class exoDaoCourseSection {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("coursJPA");
         EntityManager manager = emf.createEntityManager();
-        Course c = manager.find(Course.class,"EG1020");
+        Course c = manager.find(Course.class,"EG1010");
         Section s = manager.find(Section.class,1020);
 
         manager.getTransaction().begin();
