@@ -1,9 +1,6 @@
 package bxFormation.dbslide.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -26,10 +23,25 @@ public class Student {
     private Date birthDate;
     @Column(name="login")
     private  String login;
-    @Column(name = "section_id")
-    private int sectionId;
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
     @Column(name = "year_result")
     private int yearResult;
     @Column(name="course_id")
     private  String courseId;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", login='" + login + '\'' +
+                ", section=" + (section == null ? null : section.getName()) +
+                ", yearResult=" + yearResult +
+                ", courseId='" + courseId + '\'' +
+                '}';
+    }
 }

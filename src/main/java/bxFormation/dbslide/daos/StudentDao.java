@@ -28,8 +28,6 @@ public class StudentDao {
     }
     public void update(Student student) {
         manager.getTransaction().begin();
-//        Student studentToUpdate = getStudentById(student.getId());
-//        studentToUpdate.setFirstName(student.getFirstName());
         manager.merge(student);
         manager.getTransaction().commit();
     }
@@ -39,18 +37,23 @@ public class StudentDao {
         manager.remove(studentToDelette);
         manager.getTransaction().commit();
     }
+    public void delette(int id) {
+        Student studentToDelette = getStudentById(id);
+        manager.getTransaction().begin();
+        manager.remove(studentToDelette);
+        manager.getTransaction().commit();
+    }
     public void transfertFromSectionToSection(Section s1, Section s2){
         List<Student> students = manager.createQuery(
                 """
-                    SELECT s FROM Student s
-                    WHERE s.sectionId = 
+                    SELECT s
+                    FROM Student s
+                    WHERE s.section.id =
                 """ + s1.getId(),
                 Student.class
         ).getResultList();
 
-        students.forEach(student->{
-            update(new Student(student.getId(),student.getFirstName(),student.getLastName(),student.getBirthDate(),student.getLogin(),s2.getId(),student.getYearResult(),student.getCourseId()));
-        });
+        students.forEach(student->update(new Student(student.getId(),student.getFirstName(),student.getLastName(),student.getBirthDate(),student.getLogin(),s2,student.getYearResult(),student.getCourseId())));
     }
 
 
