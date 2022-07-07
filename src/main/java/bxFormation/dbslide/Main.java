@@ -8,6 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -20,7 +21,7 @@ public class Main {
 
         //region CRUD SectionDao (en commentaire)
 //        Section section = new Section(1111,"name",456);
-        System.out.println(sectionDao.getSectionById(1020));
+//        System.out.println(sectionDao.getSectionById(1020));
 //        System.out.println(sectionDao.getAllSections());
 //        sectionDao.insert(section);
 //        sectionDao.update(section);

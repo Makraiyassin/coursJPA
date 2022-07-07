@@ -22,4 +22,12 @@ public class Section {
 
     @OneToMany(mappedBy = "section")
     List<Student> studentList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "course_section",
+            joinColumns = @JoinColumn(name="section_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> courses;
 }
