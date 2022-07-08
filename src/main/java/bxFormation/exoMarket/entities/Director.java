@@ -16,11 +16,10 @@ import lombok.Setter;
 @Getter @Setter
 public class Director {
     @Id
-    @Column(name = "director_id")
     private int id;
-    @Column(name = "first_name")
+    @Column(name = "firstname")
     private String firstName;
-    @Column(name = "last_name")
+    @Column(name = "lastname")
     private String lastName;
     private double salary;
 }

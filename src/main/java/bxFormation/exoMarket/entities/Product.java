@@ -16,7 +16,6 @@ import lombok.Setter;
 @Getter @Setter
 public class Product {
     @Id
-    @Column(name = "product_id")
     private int id;
     private String name;
     private String brand;

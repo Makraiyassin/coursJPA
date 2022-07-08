@@ -16,7 +16,6 @@ import lombok.Setter;
 @Getter @Setter
 public class Aisle {
     @Id
-    @Column(name = "aisle_id")
     private int id;
     private String type;
 }

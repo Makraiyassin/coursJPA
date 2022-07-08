@@ -16,7 +16,6 @@ import lombok.Setter;
 @Getter @Setter
 public class Market {
     @Id
-    @Column(name = "market_id")
     private int id;
     private String name;
     private String street;
