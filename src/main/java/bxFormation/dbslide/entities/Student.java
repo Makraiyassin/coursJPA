@@ -32,6 +32,9 @@ public class Student {
     @Column(name="course_id")
     private  String courseId;
 
+//    @OneToOne
+//    private Section delegueDe;
+
     @Override
     public String toString() {
         return "Student{" +
@@ -46,17 +49,4 @@ public class Student {
                 '}';
     }
 
-    @OneToOne
-    private Section delegueDe;
-
-    public Student(int id, String firstName, String lastName, Date birthDate, String login, Section section, int yearResult, String courseId) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.login = login;
-        this.section = section;
-        this.yearResult = yearResult;
-        this.courseId = courseId;
-    }
 }

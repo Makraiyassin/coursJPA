@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("coursJPA");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dbslidePersist");
         EntityManager manager = emf.createEntityManager();
         SectionDao sectionDao = new SectionDao(manager);
         StudentDao studentDao = new StudentDao(manager);

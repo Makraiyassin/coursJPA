@@ -1,13 +1,12 @@
 package bxFormation.exoMarket.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -16,8 +15,16 @@ import lombok.Setter;
 @Getter @Setter
 public class Product {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String name;
     private String brand;
     private double price;
+    @ManyToMany
+    @JoinTable(
+            name = "market_product",
+            joinColumns = @JoinColumn(name="product_id"),
+            inverseJoinColumns = @JoinColumn(name = "market_id")
+    )
+    private List<Market> marketList;
 }

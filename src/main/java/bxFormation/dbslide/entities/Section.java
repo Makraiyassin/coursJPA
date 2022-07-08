@@ -21,7 +21,7 @@ public class Section {
     private int delegateId;
 
     @OneToMany(mappedBy = "section")
-    List<Student> studentList;
+    private List<Student> studentList;
 
     @ManyToMany
     @JoinTable(
@@ -31,6 +31,6 @@ public class Section {
     )
     private List<Course> courses;
 
-    @OneToOne
-    private Student delegue;
+//    @OneToOne
+//    private Student delegue;
 }
