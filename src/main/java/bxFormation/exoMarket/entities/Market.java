@@ -2,11 +2,9 @@ package bxFormation.exoMarket.entities;
 
 import jakarta.persistence.*;
 import jdk.jfr.MemoryAddress;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
+@ToString
 public class Market {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -40,7 +39,9 @@ public class Market {
         this.street = street;
         this.city = city;
         this.number = number;
-        this.aisleList = aisleList;
-        this.director = director;
+        this.productList = new ArrayList<>();
+        this.aisleList = new ArrayList<>();
     }
+
+
 }

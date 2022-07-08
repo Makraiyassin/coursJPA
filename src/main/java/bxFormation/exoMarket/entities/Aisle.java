@@ -1,10 +1,7 @@
 package bxFormation.exoMarket.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "aisle")
@@ -19,4 +16,16 @@ public class Aisle {
     @ManyToOne
     @JoinColumn(name = "market_id")
     private Market market;
+
+    public Aisle(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Aisle{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
